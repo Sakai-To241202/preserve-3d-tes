@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+        .cube-container {
+            width: 200px;
+            height: 200px;
+            perspective: 800px; /* 視点の距離を設定 */
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: rotate 5s infinite linear;
+        }
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: #3498db;
+            opacity: 0.8;
+        }
+        .face.front { transform: translateZ(100px); }
+        .face.back { transform: translateZ(-100px) rotateY(180deg); }
+        .face.left { transform: rotateY(-90deg) translateX(-100px); }
+        .face.right { transform: rotateY(90deg) translateX(100px); }
+        .face.top { transform: rotateX(90deg) translateY(-100px); }
+        .face.bottom { transform: rotateX(-90deg) translateY(100px); }
+        @keyframes rotate {
+            0% { transform: rotateY(0); }
+            100% { transform: rotateY(360deg); }
+        }
